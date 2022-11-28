@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
