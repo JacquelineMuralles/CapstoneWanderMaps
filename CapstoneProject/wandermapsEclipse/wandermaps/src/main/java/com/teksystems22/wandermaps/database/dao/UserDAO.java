@@ -10,5 +10,5 @@ import com.teksystems22.wandermaps.database.entity.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Long>{
 
-		public List<User> findByUsername(String name);
+		public List<User> findByUserName(String name);
 }

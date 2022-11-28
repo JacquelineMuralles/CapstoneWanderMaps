@@ -47,7 +47,7 @@ public class TripDetails {
 	@EqualsAndHashCode.Include
 	@ToString.Include
 	private java.sql.Timestamp departureDate;
-	
+
 	@Column(name="trans_type")
 	@EqualsAndHashCode.Include
 	@ToString.Include
