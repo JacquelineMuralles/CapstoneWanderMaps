@@ -53,18 +53,18 @@ public class Event {
 	@ToString.Include
 	private String address;
 	
-	//many to one
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id", nullable = false,  insertable=false, updatable = false)
-    @EqualsAndHashCode.Exclude
-	@ToString.Include
-	private Trip trip;
+//	//many to one
+//    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+//    @JoinColumn(name = "trip_id", nullable = false,  insertable=false, updatable = false)
+//    @EqualsAndHashCode.Exclude
+//	@ToString.Exclude
+//	private Trip eventTrip;
     
 	//many to one
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id", nullable = false,  insertable=false, updatable = false)
+    @JoinColumn(name = "trip_details_id", nullable = false,  insertable=false, updatable = false)
     @EqualsAndHashCode.Exclude
-	@ToString.Include
+	@ToString.Exclude
 	private TripDetails tripDetails;
 	
 	

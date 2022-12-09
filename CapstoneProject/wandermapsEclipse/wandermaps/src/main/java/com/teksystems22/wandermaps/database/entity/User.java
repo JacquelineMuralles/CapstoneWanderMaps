@@ -34,63 +34,40 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private Integer id;
 	
 	@Column(name="username")
-	@EqualsAndHashCode.Include
-	@ToString.Include
-	private String userName;
+	private String username;
 	
 	@Column(name="password")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String password;
 	
 	@Column(name="first_name")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String firstName;
 	
 	@Column(name="last_name")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String lastName;
 	
+//	delete this column
 	@Column(name="message")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String message;
 	
 	@Column(name="email")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String email;
 	
 	@Column(name="age")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private Integer age;
 	
 	@Column(name="city")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String city;
 	
 	@Column(name="state")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String state;
 	
 	@Column(name="country")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String country;
-	
+
 	@Column(name="timezone")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String timezone;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

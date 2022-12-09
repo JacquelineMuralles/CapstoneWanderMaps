@@ -34,13 +34,9 @@ public class Trip {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private Integer id;
 	
 	@Column(name="name")
-	@EqualsAndHashCode.Include
-	@ToString.Include
 	private String name;
 	
 	//many to one
@@ -50,14 +46,15 @@ public class Trip {
 	@ToString.Include
 	private User user;
 	
+//	//one to many
+//	@OneToMany(mappedBy = "eventTrip", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@EqualsAndHashCode.Exclude
+//	@ToString.Exclude
+//	private List<Event> events;
+	
 	//one to many
 	@OneToMany(mappedBy = "trip", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@EqualsAndHashCode.Exclude
-	@ToString.Exclude
-	private List<Event> events;
-	
-	//one to one
-	private Integer tripDetails;
+	private List<TripDetails> tripDetails;
 	
 	
 
