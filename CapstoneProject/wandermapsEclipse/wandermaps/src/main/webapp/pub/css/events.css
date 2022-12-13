@@ -1,0 +1,25 @@
+body {
+  background-image: url(../images/eventLandingImage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.headingContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.eventFormContainer {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  background-color: rgba(0, 117, 196, .5);
+  width: 1000px;
+  padding: 50px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border-radius: 1%;
+}

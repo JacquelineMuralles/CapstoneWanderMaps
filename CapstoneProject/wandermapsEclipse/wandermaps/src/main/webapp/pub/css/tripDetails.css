@@ -1,0 +1,55 @@
+.tripDetailLanding {
+  background-image: url(../images/tripDetailsLanding.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+.logo {
+  width: 700px;
+}
+.subHeadContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8%;
+  margin: 45 auto;
+  padding: 25px;
+  background-color: rgba(227, 184, 164, .8);
+  max-width: 800px;
+  text-align: center;
+  border-radius: 10px;
+  color: #745d59;
+}
+
+.tripFormContainer{
+  background-color: #f1ebe6;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+#tripForm {
+  background-color: #af9d97;
+  width: 1000px;
+  padding: 30px;
+  text-align: center;
+}
+
+.tripDetailsFormContainer {
+  background-color: #f1ebe6;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+#tripDetailsForm {
+  background-color: rgba(227, 184, 164, .8);
+  width: 1000px;
+  padding: 30px;
+  /* margin-top: 50px; */
+}
