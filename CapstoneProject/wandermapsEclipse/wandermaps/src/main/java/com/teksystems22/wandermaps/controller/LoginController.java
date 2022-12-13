@@ -16,8 +16,10 @@ import com.teksystems22.wandermaps.database.dao.UserDAO;
 import com.teksystems22.wandermaps.database.dao.UserRoleDAO;
 import com.teksystems22.wandermaps.database.entity.User;
 import com.teksystems22.wandermaps.database.entity.UserRoles;
+import com.teksystems22.wandermaps.form.CreateUserForm;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 public class LoginController {
@@ -33,8 +35,7 @@ public class LoginController {
 		@Qualifier("passwordEncoder")
 		private PasswordEncoder passwordEncoder;
 		
-		// this method is request mapping to show the actual login JSP page.
-		// the URL here in the mapping is the same URL configured in spring security .loginPage
+		// shows the actual login JSP page.
 		@RequestMapping(value = "/user/login", method = RequestMethod.GET)
 		public ModelAndView login() {
 			ModelAndView response = new ModelAndView();
@@ -42,17 +43,7 @@ public class LoginController {
 			return response;
 		}
 		
-		// in this situation we are returning the view name as a string without a model
-		@RequestMapping(value = "/user/example", method = RequestMethod.GET)
-		public String example() {
-			// so if the method returns just a string then that is considered to be the view name
-			return "login_pages/login";
-			
-			// this is not to be confused with the @ResponseBody annotation, which would then return the string
-			// directely to the browser with no view
-		}
-		
-
+		//displays createUser page
 		@RequestMapping(value = "/user/createuser", method = RequestMethod.GET)
 		public ModelAndView createUser() {
 			ModelAndView response = new ModelAndView();
@@ -62,10 +53,12 @@ public class LoginController {
 			return response;
 		}
 
+		//Gets the user entered values for create user form
 		@RequestMapping(value = "/user/createuser", method = RequestMethod.POST)
 		public ModelAndView createUserSubmit(@Valid CreateUserForm form, BindingResult bindingResult) {
 			ModelAndView response = new ModelAndView();
 			response.setViewName("login_pages/create_user");
+			
 			log.debug("This is in the POST method for create user");
 
 			log.debug(form.toString());
@@ -83,12 +76,11 @@ public class LoginController {
 				user.setFirstName(form.getFirstName());
 				user.setLastName(form.getLastName());
 				user.setUsername(form.getUsername());
-				user.setMessage(form.getMessage);
+				user.setMessage(form.getMessage());
 				user.setEmail(form.getEmail());
-				user.setAge(form.getAge());
-				user.setCountry(form.getCountry());
 				user.setCity(form.getCity());
 				user.setState(form.getState());
+				user.setCountry(form.getCountry());
 				user.setTimezone(form.getTimezone());
 
 				//once saved userId will be auto-populated

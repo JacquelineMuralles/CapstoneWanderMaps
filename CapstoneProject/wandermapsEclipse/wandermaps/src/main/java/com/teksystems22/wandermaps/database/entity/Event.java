@@ -1,5 +1,7 @@
 package com.teksystems22.wandermaps.database.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -39,9 +43,10 @@ public class Event {
 	private String type;
 	
 	@Column(name="date")
+	@Temporal(TemporalType.TIMESTAMP)
 	@EqualsAndHashCode.Include
 	@ToString.Include
-	private java.sql.Timestamp date;
+	private Date date;
 	
 	@Column(name="description")
 	@EqualsAndHashCode.Include

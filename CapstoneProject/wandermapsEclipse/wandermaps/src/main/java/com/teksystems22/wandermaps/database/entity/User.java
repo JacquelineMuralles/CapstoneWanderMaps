@@ -48,15 +48,11 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	
-//	delete this column
 	@Column(name="message")
 	private String message;
 	
 	@Column(name="email")
 	private String email;
-	
-	@Column(name="age")
-	private Integer age;
 	
 	@Column(name="city")
 	private String city;

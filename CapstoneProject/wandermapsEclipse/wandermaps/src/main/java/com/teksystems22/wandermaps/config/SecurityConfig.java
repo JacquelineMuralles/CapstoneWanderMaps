@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.csrf().disable()
 	        .authorizeRequests()
 	        	// URLs that do not need authentication to view
-	        	.antMatchers("/pub/**", "/user/**", "/", "/index", "/search").permitAll()
+	        	.antMatchers("/pub/**", "/user/**", "/", "/index", "/search, /contact").permitAll()
 	        	// this line of code tells spring security all URLs can only be accessed if the user
 	        	// is authenticated.  
 				.anyRequest().authenticated()
@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	            .loginProcessingUrl("/user/loginpost")
 	            // URL is where user will be sent IF they have not requested a secure URL
 	            // if they requested a secure URL spring security will ignore this and user will be sent to URL requested
-	            .defaultSuccessUrl("/")
+	            .defaultSuccessUrl("/", true)
 	            .and()
 	        .logout()
 	            .invalidateHttpSession(true)
@@ -51,5 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 	
+
 
 }
