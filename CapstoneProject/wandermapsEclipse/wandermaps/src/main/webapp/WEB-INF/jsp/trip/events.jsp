@@ -39,17 +39,22 @@
 </div>
 
 <!----------------------------------------- ERROR CONFIGURATION --------------->
-<c:if test="${bindingResult.hasErrors()}">
-  <c:forEach items="${bindingResult.getAllErrors()}" var="error">
-    <p class="mb-0" style="color:red">${error.getDefaultMessage()}</p>
-  </c:forEach>
-</c:if>
+<f:if test="${bindingResult.hasErrors()}">
+<c:forEach items="${bindingResult.getAllErrors()}" var="error">
+  <p class="mb-0" style="color:red">${error.getDefaultMessage()}</p>
+</c:forEach>
+</f:if>
+<f:if test="${!bindingResult.hasErrors()}">
+<p>Event Created! <a href="/trip/addTripEvent?id=${tripId}">Add adventures to more locations in your trip!</a></p>
+<!-- <p><a href="/trip/viewItinerary?id=${trip.id}">Add adventures to more locations in your trip!</a></p>
+</f:if> -->
 
 <!----------------------------------------- CREATE USER FORM ------------------>
 
 <div class="eventFormContainer">
   <form action="/trip/events" method="POST"> 
-    <input type="hidden" name="eventId" value="10">
+    <input type="hidden" name="tripDetailsId" value="${tripDetailsId}">
+    <!-- <input type="hidden" name="tripDetailsId" value="${trip.id}"> -->
 <!---------------------------- FIRST ROW -->
     <div class="row">
       <div class="mb-3 col-6">
@@ -84,7 +89,6 @@
     
     <button onClick="SubmitForm()" type="submit" class="btn" style="background-color: #F1EBE7">Submit</button>
 
-    <button type="navigation" onClick="" class="btn addEvent" style="background-color: #F1EBE7">Go Back</button>
   </form>
 </div>
 

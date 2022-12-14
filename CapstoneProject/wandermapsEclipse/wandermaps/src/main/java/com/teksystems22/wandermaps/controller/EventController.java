@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -18,7 +19,6 @@ import com.teksystems22.wandermaps.database.dao.EventDAO;
 import com.teksystems22.wandermaps.database.dao.TripDAO;
 import com.teksystems22.wandermaps.database.dao.TripDetailDAO;
 import com.teksystems22.wandermaps.database.entity.Event;
-import com.teksystems22.wandermaps.database.entity.Trip;
 import com.teksystems22.wandermaps.database.entity.TripDetails;
 import com.teksystems22.wandermaps.database.entity.User;
 import com.teksystems22.wandermaps.form.CreateEventForm;
@@ -42,28 +42,44 @@ public class EventController {
 	
 	@Autowired
 	AuthenticatedUserService authService;
+
 	
+	//display page for add trip event
 	@RequestMapping(value = {"/trip/addTripEvent"}, method = RequestMethod.GET)
 	public ModelAndView addTripEvent(@RequestParam(value="id", required=false) Integer id) {
 		ModelAndView response = new ModelAndView();
 		response.setViewName("trip/addTripEvent");
 		
+		
 		User thisUser = authService.getCurrentUser();
 		
 		
 		List<Map<String,Object>> currentTrips = tripDetailsDao.findByTripId(thisUser.getId(), id);
-		
-		
 		response.addObject("currentTrips", currentTrips);
 		
 		return response;
 		
 	}
+		
 	
+	// display page to add event to particular trip details
 	@RequestMapping(value = "/trip/events", method = RequestMethod.GET)
-	public ModelAndView events() {
+	public ModelAndView events(@RequestParam(value="id", required=false) Integer tripDetailsId) {
 		ModelAndView response = new ModelAndView();
 		response.setViewName("trip/events");
+		
+		
+		
+		Integer tripId = tripDetailsDao.findTripIdByTripDetailsId(tripDetailsId);
+		
+		response.addObject("tripDetailsId", tripDetailsId);
+		response.addObject("tripId", tripId);
+		
+		log.debug("Trip Id is: " + tripId);
+		log.debug("Trip Details Id is: "+ tripDetailsId.toString());
+		 
+
+		
 		return response;
 	}
 	
@@ -75,7 +91,6 @@ public class EventController {
 		
 		log.debug("This is in the POST method for trip details");
 
-		log.debug(form.toString());
 		
 		for (ObjectError e : bindingResult.getAllErrors()) {
 			log.debug(e.getObjectName() + " : " + e.getDefaultMessage());
@@ -84,6 +99,11 @@ public class EventController {
 		if ( ! bindingResult.hasErrors()) {
 			Event event = new Event();
 			
+			TripDetails location = tripDetailsDao.findById(form.getTripDetailsId());
+			
+			
+			
+			event.setTripDetails(location);
 			event.setType(form.getType());
 			event.setDate(form.getDate());
 			event.setDescription(form.getDescription());
@@ -101,4 +121,5 @@ public class EventController {
 
 		return response;
 	}
+	
 }

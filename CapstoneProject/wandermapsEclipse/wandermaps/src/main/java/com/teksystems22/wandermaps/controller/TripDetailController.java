@@ -14,11 +14,9 @@ import com.teksystems22.wandermaps.database.dao.EventDAO;
 import com.teksystems22.wandermaps.database.dao.TripDAO;
 import com.teksystems22.wandermaps.database.dao.TripDetailDAO;
 
-import com.teksystems22.wandermaps.database.entity.Event;
 import com.teksystems22.wandermaps.database.entity.Trip;
 import com.teksystems22.wandermaps.database.entity.TripDetails;
 import com.teksystems22.wandermaps.database.entity.User;
-import com.teksystems22.wandermaps.form.CreateEventForm;
 import com.teksystems22.wandermaps.form.CreateTripForm;
 import com.teksystems22.wandermaps.security.AuthenticatedUserService;
 

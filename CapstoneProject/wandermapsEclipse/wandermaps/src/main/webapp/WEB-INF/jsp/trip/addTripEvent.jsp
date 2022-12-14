@@ -32,28 +32,82 @@
   </div>
 </nav>
 
-<img src="../../../pub/images/wanderMapsLogoDark.png" alt="">
+<div class="text-center mt-5 mb-5">
+  <h1 style="color: #745d59">Congratulations!</h1>
+  <h1 style="color: #745d59">Your trip has been created!</h1>
+  <h2 style="color: #e3b8a4">Now time to schedule some fun for each stop.</h2>
+</div>
+
+<c:forEach items="${currentTrips}" var="trip">
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">Arrive: ${trip.arrival_date}</th>
+      <th scope="col"></th>
+      <th scrope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Depart: ${trip.departure_date}</th>
+    </tr>
+  </thead>
+  <thead class="table-active">
+    <tr>
+      <th scope="col">Country</th>
+      <th scope="col"></th>
+      <th scope="col">State</th>
+      <th scope="col"></th>
+      <th scope="col">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>${trip.country}</td>
+      <td></td>
+      <td>${trip.state}</td>
+      <td></td>
+      <td>${trip.city}</td>
+    </tr>
+  </tbody>
+  <thead class="table-active">
+    <tr>
+      <th scope="col">Transportaion</th>
+      <th scope="col"></th>
+      <th scope="col">Lodging</th>
+      <th scope="col"></th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>${trip.trans_type}</td>
+      <td></td>
+      <td>${trip.lodging_type}</td>
+      <td></td>
+      <td>${trip.lodging_address}</td>
+    </tr>
+  </tbody>
+  <thead class="table-active">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Create Events</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/trip/events?id=${trip.id}">Create Something Fun</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</c:forEach>
+
 <div>
-  <table>
-    <c:forEach items="${currentTrips}" var="trip">
-      <tr>
-        <th>
-          Arrive: ${currentTrips.getArrivalDate()}
-          Depart: ${currentTrips.getDepartureDate()}
-        </th>
-      </tr>
-      <tr>
-        <td>Country: ${currentTrips.getCountry()}</td>
-        <td>State: ${currentTrips.getState()}</td>
-        <td>City: ${currentTrips.getCity()}</td>
-      </tr>
-      <tr>
-        <td>Transportaion: ${currentTrips.getTransType()}</td>
-        <td>${currentTrips.getLodgingType}</td>
-        <td>Address: ${currentTrips.getLodgingAddress}</td>
-      </tr>
-      <!-- <tr><a href="/trip/events?id=${tripDetails.getId()}">Add An Something Fun For This Location</a></tr> -->
-    </c:forEach>
-    
-  </table>
+<h2>Finished Adding Adventures?</h2>
+<a href="/tripdetails/addtrip"><img src="../../../pub/images/generateItinerary.png" alt="Generate Your Itierary!"></a>
+
 </div>

@@ -35,7 +35,7 @@
   <div class="px-5 text-center d-flex align-content-around justify-content-center flex-wrap py-5">
     <img src="../../pub/images/wanderMapsLogoDark.png" alt="Wander Maps">
     <h2 class="px-5">Creating adventure maps so you never have to worry about the details.</h2>
-    <a href="/tripdetails/addtrip"><img src="../../pub/images/createAdventureButton.png" alt="Create An Adventure"></button></a>
+    <a href="/tripdetails/addtrip"><img src="../../pub/images/createAdventureButton.png" alt="Create An Adventure"></a>
   </div>
 
   <div>

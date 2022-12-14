@@ -6,8 +6,8 @@ import com.teksystems22.wandermaps.database.entity.Event;
 
 public interface EventDAO extends JpaRepository<Event, Long>{
 	
-	public Event getEventById(Integer Id);
+	public Event findById(Integer Id);
 	
-	public Event getEventByTripDetailsId(Integer tripDetailsId);
+//	public Event getEventByTripDetailsId(Integer tripDetailsId);
 
 }

@@ -50,7 +50,7 @@
 </c:forEach>
 </f:if>
 <f:if test="${!bindingResult.hasErrors()}">
-<p>Signup Success! <a href="/trip/addTripEvent?id=${trip.getId()}">Return To Login.</a></p>
+<p>Signup Success! <a href="/trip/addTripEvent?id=${trip.getId()}">Let's add some adventures to your trip!</a></p>
 </f:if>
 
 
