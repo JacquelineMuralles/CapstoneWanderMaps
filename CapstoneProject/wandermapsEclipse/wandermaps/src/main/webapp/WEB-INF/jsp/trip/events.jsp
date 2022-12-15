@@ -19,7 +19,7 @@
   <div class="d-flex justify-content-center">
     <a class="nav-link active ms-5" href="/index"><h2>Home</h2></a>
     <a class="nav-link ms-5" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
-    <a class="nav-link ms-5" href="/trips"><h2>View Your Adventures</h2></a>
+    <a class="nav-link ms-5" href="/trip/trips"><h2>View Your Adventures</h2></a>
     <a class="nav-link ms-5" href="/contact"><h2>Contact</h2></a>
   </div>
   <div class="d-flex mx-5">
@@ -44,21 +44,16 @@
   <p class="mb-0" style="color:red">${error.getDefaultMessage()}</p>
 </c:forEach>
 </f:if>
-<f:if test="${!bindingResult.hasErrors()}">
-<p>Event Created! <a href="/trip/addTripEvent?id=${tripId}">Add adventures to more locations in your trip!</a></p>
-<!-- <p><a href="/trip/viewItinerary?id=${trip.id}">Add adventures to more locations in your trip!</a></p>
-</f:if> -->
 
 <!----------------------------------------- CREATE USER FORM ------------------>
 
 <div class="eventFormContainer">
   <form action="/trip/events" method="POST"> 
     <input type="hidden" name="tripDetailsId" value="${tripDetailsId}">
-    <!-- <input type="hidden" name="tripDetailsId" value="${trip.id}"> -->
 <!---------------------------- FIRST ROW -->
     <div class="row">
       <div class="mb-3 col-6">
-        <label for="type" class="form-label">Event Type</label>
+        <label for="type" class="form-label">Adventure Type</label>
         <input style="background-color: #F1EBE7" type="text" value="${form.type}" name="type" class="form-control" id="type" aria-describedby="typeHelp">
         <div id="typeHelp" class="form-text">What type of event is this? Outdoor, indoor, physical activity, sightseeing, etc.</div>
       </div>
@@ -66,7 +61,7 @@
       <div class="mb-3 col-6">
         <label for="date" class="form-label">Date of Event</label>
         <input style="background-color: #F1EBE7" type="text" value="${form.date}" name="date" class="form-control" id="date" aria-describedby="dateHelp">
-        <div id="dateHelp" class="form-text">Please enter using the MM/DD/YYYY format</div>
+        <div id="dateHelp" class="form-text">Please enter using the YYYY/MM/DD format</div>
       </div>
     </div>
 <!---------------------------- Second ROW -->
@@ -87,7 +82,7 @@
       </div>
     </div>
     
-    <button onClick="SubmitForm()" type="submit" class="btn" style="background-color: #F1EBE7">Submit</button>
+    <button type="submit" class="btn" style="background-color: #F1EBE7">Submit</button>
 
   </form>
 </div>

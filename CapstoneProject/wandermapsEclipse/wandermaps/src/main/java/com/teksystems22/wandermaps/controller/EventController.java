@@ -57,6 +57,9 @@ public class EventController {
 		List<Map<String,Object>> currentTrips = tripDetailsDao.findByTripId(thisUser.getId(), id);
 		response.addObject("currentTrips", currentTrips);
 		
+		Integer tripId = id;
+		response.addObject("tripId", tripId);
+		
 		return response;
 		
 	}
@@ -68,11 +71,10 @@ public class EventController {
 		ModelAndView response = new ModelAndView();
 		response.setViewName("trip/events");
 		
-		
-		
 		Integer tripId = tripDetailsDao.findTripIdByTripDetailsId(tripDetailsId);
-		
+		// to put tripDetailsId into event table below
 		response.addObject("tripDetailsId", tripDetailsId);
+		//to navigate back to view all locations in trip and add more events.
 		response.addObject("tripId", tripId);
 		
 		log.debug("Trip Id is: " + tripId);
@@ -112,7 +114,8 @@ public class EventController {
 
 			//once saved eventId will be auto-populated
 			eventDao.save(event);
-
+			
+			response.setViewName("redirect:/trip/addTripEvent?id=" + location.getTrip().getId());
 			
 		} else {
 			response.addObject("bindingResult", bindingResult);

@@ -9,5 +9,6 @@ public interface EventDAO extends JpaRepository<Event, Long>{
 	public Event findById(Integer Id);
 	
 //	public Event getEventByTripDetailsId(Integer tripDetailsId);
+	
 
 }

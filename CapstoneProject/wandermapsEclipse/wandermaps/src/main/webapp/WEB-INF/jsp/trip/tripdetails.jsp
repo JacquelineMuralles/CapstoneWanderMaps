@@ -17,8 +17,8 @@
   </div>
   <div class="d-flex justify-content-center">
     <a class="nav-link active ms-5" href="/index"><h2>Home</h2></a>
-    <a class="nav-link ms-5" aria-current="page" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
-    <a class="nav-link ms-5" href="/trip/viewtrips"><h2>View Your Adventures</h2></a>
+    <a class="nav-link ms-5" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
+    <a class="nav-link ms-5" aria-current="page" href="/trip/trips"><h2>View Your Adventures</h2></a>
     <a class="nav-link ms-5" href="/contact"><h2>Contact</h2></a>
   </div>
   <div class="d-flex mx-5">
@@ -49,19 +49,17 @@
   <p class="mb-0" style="color:red">${error.getDefaultMessage()}</p>
 </c:forEach>
 </f:if>
-<f:if test="${!bindingResult.hasErrors()}">
-<p>Signup Success! <a href="/trip/addTripEvent?id=${trip.getId()}">Let's add some adventures to your trip!</a></p>
-</f:if>
 
 
 
-<div class="tripDetailsFormContainer">
+<div class="tripDetailsFormContainer d-flex flex-column align-items-center">
   
-  <form action="/trip/tripdetails" method="POST" id="tripDetailsForm"> 
+  <form action="/trip/tripdetails" method="POST" id="tripDetailsForm" name="tripDetailsForm"> 
     <div class="row">
-      <h2 class="mb-3 col-12 text-center">Now, on to the details:</h2>
+      <h2 class="mb-3 col-12 text-center">First, name your trip.</h2>
     </div>
-    <input type="hidden" name="tripDetailsId" value="10">
+
+    
     
     <div class="row">
       <div class="mb-3 col-12">
@@ -72,16 +70,23 @@
     </div>
 
     <div class="row">
+      <h2 class="mb-3 col-12 text-center">Now, add the details of your trip.</h2>
+    </div>
+
+
+    <input type="hidden" name="tripDetailsId" value="${tripDetailsId}" id="hiddenTripDetailId">
+
+    <div class="row">
       <div class="mb-3 col-6">
         <label for="arrivalDate" class="form-label">Arrival Date</label>
         <input style="background-color: #F1EBE7" type="text" value="${form.arrivalDate}" name="arrivalDate" class="form-control" id="arrivalDate" aria-describedby="arrivalDateHelp">
-        <div id="arrivalDateHelp" class="form-text">Enter the day you arrive to your destination in YYYY-MM-DD format</div>
+        <div id="arrivalDateHelp" class="form-text">Enter the day you arrive to your destination in YYYY/MM/DD format</div>
       </div>
   
       <div class="mb-3 col-6">
         <label for="departureDate" class="form-label">Departure Date</label>
         <input style="background-color: #F1EBE7" type="text" value="${form.departureDate}" name="departureDate" class="form-control" id="departureDate" aria-describedby="departureDateHelp">
-        <div id="dateHelp" class="form-text">Enter the day you depart your destination in YYYY-MM-DD format</div>
+        <div id="dateHelp" class="form-text">Enter the day you depart your destination in YYYY/MM/DD format</div>
       </div>
     </div>
 
@@ -120,12 +125,12 @@
       <div class="mb-3 col-12">
         <label for="transType" class="form-label">Transportation Type</label>
         <select style="background-color: #F1EBE7" value="${form.transType}" name="transType" class="form-control" id="transType" aria-describedby="transTypeHelp">
-          <option value="plane">Plane</option>
-          <option value="train">Train</option>
-          <option value="bus">Bus</option>
-          <option value="car">Car</option>
-          <option value="boat">Boat</option>
-          <option value="onFoot">On Foot</option>
+          <option value="Plane">Plane</option>
+          <option value="Train">Train</option>
+          <option value="Bus">Bus</option>
+          <option value="Car">Car</option>
+          <option value="Boat">Boat</option>
+          <option value="On Foot">On Foot</option>
         </select>
         <div id="transTypeHelp" class="form-text">Please select from the drop down menu.</div>
       </div>
@@ -136,13 +141,13 @@
       <div class="mb-3 col-6">
         <label for="lodgingType" class="form-label">Lodging Type</label>
         <select style="background-color: #F1EBE7" value="${form.lodgingType}" name="lodgingType" class="form-control" id="lodgingType" aria-describedby="lodgingTypeHelp">
-          <option value="airBnB">AirBnB</option>
-          <option value="hotel">Hotel</option>
-          <option value="hostel">Hostel</option>
-          <option value="vacationHome">Vacation Home</option>
-          <option value="knownHome">Friend/Family Home</option>
-          <option value="camping">Camping</option>
-          <option value="rv">RV</option>
+          <option value="AirBnB">AirBnB</option>
+          <option value="Hotel">Hotel</option>
+          <option value="Hostel">Hostel</option>
+          <option value="Vacation Home">Vacation Home</option>
+          <option value="Friend/Family Home">Friend/Family Home</option>
+          <option value="Camping">Camping</option>
+          <option value="RV">RV</option>
         </select>
         <div id="lodgingTypeHelp" class="form-text">Please select from the drop down menu.</div>
       </div>
@@ -153,15 +158,13 @@
         <div id="lodgingAddressHelp" class="form-text">Please indicate the abbreviation of the timezone of the destination.</div>
       </div>
     </div>
-
-
     
     <button onClick="SubmitForm()" type="submit" class="btn" style="background-color: #F1EBE7">  Submit</button>
-
-    <button type="navigation" onClick="" class="btn addLocation" style="background-color: #F1EBE7">Add Another Location to your trip.</button>
   </form>
+  <!-- <button type="navigation" onClick="addLocation()" class="btn addLocation" style="background-color: #F1EBE7">Add Another Location to your trip.</button> -->
 </div>
 
 
 
 <jsp:include page="../include/footer.jsp"/>
+

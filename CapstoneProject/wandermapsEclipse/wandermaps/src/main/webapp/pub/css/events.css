@@ -14,6 +14,15 @@ body {
   display: flex;
   justify-content: center;
 }
+label {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 20px;
+  color: #F1EBE7;
+}
+.form-text {
+  color: #F1EBE7;
+}
+
 
 form {
   background-color: rgba(0, 117, 196, .5);

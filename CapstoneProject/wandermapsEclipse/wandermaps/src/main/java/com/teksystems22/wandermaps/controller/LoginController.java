@@ -93,6 +93,8 @@ public class LoginController {
 				
 				userRoleDao.save(ur);
 				
+				response.setViewName("redirect:/user/login");
+				
 			} else {
 				response.addObject("bindingResult", bindingResult);
 				response.addObject("form", form);

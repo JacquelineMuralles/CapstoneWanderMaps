@@ -97,13 +97,11 @@ public class TripDetailController {
 			tripDetail.setTimezone(form.getTimezone());
 			tripDetail.setLodgingType(form.getLodgingType());
 			tripDetail.setLodgingAddress(form.getLodgingAddress());
-//			tripDetail.setEvents(form.getEvents());
 
-			//once saved userId will be auto-populated
+
 			tripDetailsDao.save(tripDetail);
 			
-//		
-//			response.setViewName("trip/addTripEvent?id=" + trip.getId());
+			response.setViewName("redirect:/trip/addTripEvent?id=" + trip.getId());
 			
 			
 			
@@ -111,8 +109,10 @@ public class TripDetailController {
 			response.addObject("bindingResult", bindingResult);
 			response.addObject("form", form);
 		}
-
+		
+		
 		return response;
+		
 	}
 
 }

@@ -18,7 +18,7 @@
   <div class="d-flex justify-content-center">
     <a class="nav-link active ms-5" href="/index"><h2>Home</h2></a>
     <a class="nav-link ms-5" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
-    <a class="nav-link ms-5" href="/trips"><h2>View Your Adventures</h2></a>
+    <a class="nav-link ms-5" href="/trip/trips"><h2>View Your Adventures</h2></a>
     <a class="nav-link ms-5" href="/contact"><h2>Contact</h2></a>
   </div>
   <div class="d-flex mx-5">
@@ -32,10 +32,10 @@
   </div>
 </nav>
 
-<div class="text-center mt-5 mb-5">
+<div class="text-center mt-3 mb-5">
   <h1 style="color: #745d59">Congratulations!</h1>
   <h1 style="color: #745d59">Your trip has been created!</h1>
-  <h2 style="color: #e3b8a4">Now time to schedule some fun for each stop.</h2>
+  <h2 style="color: #e3b8a4">Now time to schedule some fun!</h2>
 </div>
 
 <c:forEach items="${currentTrips}" var="trip">
@@ -106,8 +106,10 @@
 </table>
 </c:forEach>
 
-<div>
+<div class="mt-5 mb-5 d-flex flex-column align-items-center">
 <h2>Finished Adding Adventures?</h2>
-<a href="/tripdetails/addtrip"><img src="../../../pub/images/generateItinerary.png" alt="Generate Your Itierary!"></a>
+<a href="/trip/itinerary?id=${tripId}"><img src="../../../pub/images/generateItinerary.png" alt="Generate Your Itierary!"></a>
 
 </div>
+
+<jsp:include page="../include/footer.jsp"/>

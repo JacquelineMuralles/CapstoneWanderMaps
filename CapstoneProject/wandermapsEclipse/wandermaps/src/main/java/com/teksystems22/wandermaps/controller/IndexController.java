@@ -23,6 +23,9 @@ public class IndexController {
 	
 	@Autowired
 	private AuthenticatedUserService authService;
+	
+	@Autowired
+	
 
 	@Value("${spring.datasource.url}")
 	private String variable;

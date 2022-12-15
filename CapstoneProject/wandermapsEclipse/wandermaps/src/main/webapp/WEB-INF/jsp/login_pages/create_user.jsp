@@ -17,15 +17,15 @@
     <a class="nav-link ms-5" href="/index"><img src="../../pub/images/WMLogoDark.png" alt=""></a>
   </div>
   <div class="d-flex justify-content-center">
-    <a class="nav-link active ms-5" href="/index"><h2>Home</h2></a>
+    <a class="nav-link active ms-5" aria-current="page" href="/index"><h2>Home</h2></a>
     <a class="nav-link ms-5" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
-    <a class="nav-link ms-5" href="/trips"><h2>View Your Adventures</h2></a>
+    <a class="nav-link ms-5" href="/trip/trips"><h2>View Your Adventures</h2></a>
     <a class="nav-link ms-5" href="/contact"><h2>Contact</h2></a>
   </div>
   <div class="d-flex mx-5">
     <sec:authorize access="!isAuthenticated()"> 
       <a class="nav-link ms-5" href="/user/login"><h2>Login</h2></a>
-      <a class="nav-link ms-5" aria-current="page" href="/user/createuser"><h2>Sign-Up</h2></a>
+      <a class="nav-link ms-5" href="/user/createuser"><h2>Sign-Up</h2></a>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
       <a class="nav-link ms-5" href="/user/logout"><h2>Logout</h2></a>

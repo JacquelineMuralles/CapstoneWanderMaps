@@ -45,10 +45,10 @@
   <form style="background-color: #E3B9A4" class="p-3" action="/user/loginpost" method="POST">
       <div class="row">
         <div class="mt-2 mb-3 col-12">
-          <label for="username" class="form-label">Username</label>
+          <label for="username" class="form-label">Email</label>
           <input style="background-color: #f1ebe7" type="username" name="username" class="form-control" id="username"
                         aria-describedby="usernameHelp">
-          <div id="usernameHelp" class="form-text">Enter your username</div>
+          <div id="usernameHelp" class="form-text">Enter your email</div>
         </div>
       </div>
       <div class="row">
