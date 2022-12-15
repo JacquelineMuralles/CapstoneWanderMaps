@@ -12,7 +12,6 @@ public interface TripDetailDAO extends JpaRepository<TripDetails, Long>{
 	
 	public TripDetails findById(Integer id);
 	
-	public List<TripDetails> findAll(Integer Id);
 	
 	@Query(value = "SELECT td.trip_id FROM trip_details td where td.id = :id", nativeQuery = true)
 	public Integer findTripIdByTripDetailsId(Integer id);

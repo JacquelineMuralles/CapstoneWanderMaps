@@ -20,7 +20,6 @@
     <a class="nav-link active ms-5" href="/index"><h2>Home</h2></a>
     <a class="nav-link ms-5" aria-current="page" href="/trip/tripdetails"><h2>Start An Adventure</h2></a>
     <a class="nav-link ms-5" href="/trip/trips"><h2>View Your Adventures</h2></a>
-    <a class="nav-link ms-5" href="/contact"><h2>Contact</h2></a>
   </div>
   <div class="d-flex mx-5">
     <sec:authorize access="!isAuthenticated()"> 
@@ -43,7 +42,7 @@
   <table class="table text-center">
     <tbody>
       <tr>
-        <td><h2>${trip.name}</h2></td>
+        <td style="width: 700px"><h2>${trip.name}</h2></td>
         <td><h2><a href="/trip/itinerary?id=${trip.id}">View Itinerary</a></h2></td>
       </tr>
     </tbody>

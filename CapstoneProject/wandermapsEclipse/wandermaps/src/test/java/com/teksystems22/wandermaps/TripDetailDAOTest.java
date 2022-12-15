@@ -1,6 +1,5 @@
 package com.teksystems22.wandermaps;
 
-import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -30,12 +29,6 @@ public class TripDetailDAOTest {
 		
 	}
 	
-	@Test
-	@Order(2)
-	public void getListOfTripDetails() {
-		List<TripDetails> tripDetails = tripDetailDao.findAll();
-		Assertions.assertThat(tripDetails.size()).isGreaterThan(0);
-	}
 
 
 }
