@@ -1,0 +1,24 @@
+body{
+  background-color: #EBDDD7;
+}
+h1 {
+  color: #745d59;
+}
+/* .table-holder {
+  height: 85%;
+} */
+th {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 25px;
+  color: #af9d97;
+}
+td {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 20px;
+  color: #745d59;
+}
+
+table {
+  margin: 0 auto;
+  max-width: 90%;
+}
